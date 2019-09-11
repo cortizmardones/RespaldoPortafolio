@@ -341,8 +341,53 @@ BEGIN
 END;
 
 
+--Video 37 (BLOQUES ANIDADOS)
+SET SERVEROUTPUT ON;
+DECLARE
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('EN EL PRIMER BLOQUE'); --OJO QUE LAS VARIABLES DE ACÁ SON GLOBALES
+    DECLARE
+    BEGIN
+        DBMS_OUTPUT.PUT_LINE('EN EL SEGUNDO BLOQUE'); --OJO QUE LAS VARIABLES DE ACÁ SON LOCALES (existen solo en este ambito)
+    END;
+END;
 
-SELECT * FROM EMPRESA;
+
+--VIDEO 43 (COMANDO IF)
+SET SERVEROUT ON;
+DECLARE
+ NUMERO NUMBER:= 10;
+BEGIN
+    IF
+        NUMERO > 20
+    THEN
+        --Condición si se cumple lo de arriba
+        DBMS_OUTPUT.PUT_LINE('EL NUMERO ES MAYOR QUE ');
+    ELSE
+        --Condición si no se cumple
+        DBMS_OUTPUT.PUT_LINE('EL NUMERO ES MENOR QUE ');
+    END IF;
+END;
+
+/* Por si quieres poner más de una condición
+IF
+        sales > 50000
+    THEN
+        bonus := 1500;
+    ELSIF sales > 35000 
+    THEN
+        bonus := 500;
+    ELSIF sales > 20000 
+    THEN
+        bonus := 150;
+    ELSE
+        bonus := 100;
+    END IF;
+*/
+
+
+
+
 
 
 
